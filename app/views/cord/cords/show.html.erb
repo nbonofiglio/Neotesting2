@@ -1,0 +1,49 @@
+<h1>
+  Cord
+</h1>
+<table>
+  <thead>
+    <tr>
+      <th style="border: 1px solid black;">
+        Property
+      </th>
+      <th style="border: 1px solid black;">
+        Value
+      </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+      <td> Id </td>
+      <td><%= @cord.apiotics_instance %></td>
+    </tr>
+    <tr>
+      <td> Name </td>
+      <td><%= @cord.name %></td>
+    </tr>
+    <tr data-toggle="collapse" data-target=".pixel_values">
+      <td colspan=2 class="collapse_trigger"><span class="glyphicon glyphicon-minus"></span> Pixels</td>
+    </tr>
+    <% (0..239).each do |i| %>
+      <tr class="collapse in pixel_values"> 
+        <td><%= "pixel_#{i}" %></td>
+        <td class="<%= "cord-neo_pixel-pixel_#{i}"%>">
+          <%= @cord.neo_pixel.send("pixel_#{i}")%>
+        </td>
+      </tr>
+    <% end %> <!-- (0..239).each -->
+   </tbody>
+</table>
+
+<%= link_to 'Edit', edit_cord_path(@cord) %> |
+<%= link_to 'Back', cords_path %>
+
+<script>
+
+  
+  $('.collapse').on('shown.bs.collapse', function(){
+  $(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+  }).on('hidden.bs.collapse', function(){
+  $(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+  });
+</script>

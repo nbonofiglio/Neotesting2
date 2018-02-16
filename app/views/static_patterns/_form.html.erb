@@ -1,0 +1,46 @@
+<!-- note: min width is 412. below that, the left column stays the same to fit the create button 
+and the input boxes in the right column don't resize once all the horizontal padding is gone -->
+
+<%= simple_form_for @static_pattern do |f| %>
+<div class="table-responsive">
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>
+	        Property
+	      </th>
+	      <th>
+	        Value
+	      </th>
+	    </tr>
+	  </thead>
+	  <tbody>
+      <tr>
+        <td>Name</td>
+        <td><%= f.input_field :name %></td>
+      </tr>
+      <tr>
+        <td>Size</td>
+        <td><%= f.input_field :size, value: '240' %></td>
+      </tr>
+      <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+      <% (0..239).each do |i| %>
+        <tr> 
+          <td>
+            <%= "pixel_#{i}" %>
+          </td>
+          <td>
+            <%= f.input_field :"pixel_#{i}", value: '0' %>
+          </td>
+        </tr>
+      <% end %> <!-- (0..239).each -->
+	    <tr>
+	      <td>
+          <div class="actions"><%= f.submit %></div>
+        </td>
+        <td>&nbsp;</td>
+	    </tr>
+	  </tbody>
+	</table>
+</div>
+<% end %>

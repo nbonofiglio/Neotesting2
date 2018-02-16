@@ -1,0 +1,35 @@
+<%= render 'cord/cords#index' unless user_signed_in? %>
+<div class="section-title">
+  <h1>Patterns</h1>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Size
+      </th>
+      <th>
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @static_patterns.each do |static_pattern| %>
+      <tr>
+        <td><%= static_pattern.name %></td>
+        <td><%= static_pattern.size %></td>
+        <td><%= link_to 'Show', static_pattern %> | <%= link_to 'Edit', edit_static_pattern_path(static_pattern) %> | 
+          <%= link_to 'Destroy', static_pattern, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pattern', new_static_pattern_path %>

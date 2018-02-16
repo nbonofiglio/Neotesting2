@@ -1,0 +1,13 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+$body-bg: 						#4a5f73;
+$navbar-default-bg: 			#263a4a;
+$brand-primary: 				#1bb394;
+$jumbotron-bg:					#F3F3F4;
+$jumbotron-padding: 			10px;
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+

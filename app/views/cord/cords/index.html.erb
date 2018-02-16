@@ -1,0 +1,57 @@
+<div class="section-title">
+  <h1>
+    Cords
+  </h1>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Property
+      </th>
+      <th>
+        Value
+      </th>
+    </tr>
+   </thead>
+   <tbody>
+    <% @cords.each do |object| %>
+      <tr>
+        <td> Id </td>
+        <td><%= object.apiotics_instance %></td>
+      </tr>
+      <tr>
+        <td> Name </td>
+        <td><%= object.name %></td>
+      </tr>
+      <tr data-toggle="collapse" data-target=".pixel_values">
+        <td class="collapse_trigger"><span class="glyphicon glyphicon-plus"></span> Pixels</td>
+        <td></td>
+      </tr>
+      <% (0..239).each do |i| %>
+        <tr class="collapse pixel_values"> 
+          <td><%= "pixel_#{i}" %></td>
+          <td class='<%= "cord-neo_pixel-pixel_#{i}"%>'>
+            <%= object.neo_pixel.send("pixel_#{i}")%>
+          </td>
+        </tr>
+      <% end %> <!-- (0..239).each -->
+      <tr>
+        <td>Actions</td>
+        <td>
+          <%= link_to "Edit", edit_cord_path(object)%> | <%= link_to "Show", cord_path(object) %>
+          <% if user_signed_in? %>| <%= link_to "Save as pattern", new_static_pattern_path(:source_cord_id => object.id) %> 
+          <% end %>
+        </td>
+      </tr>
+    <% end %> <!-- @cords.each -->
+   </tbody>
+</table>
+
+<script>  
+  $('.collapse').on('shown.bs.collapse', function(){
+  $(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+  }).on('hidden.bs.collapse', function(){
+  $(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+  });
+</script>

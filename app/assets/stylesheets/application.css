@@ -1,0 +1,302 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+/* 
+Colors:
+
+[teal] title color #1BB394;
+[dark-teal] link-clicked #19A387;
+[dark-grey] text color #233645;
+[grey] nav-base #263A4A;
+[med-grey] background-color: #4A5F73;
+[off-white] bg-box #F3F3F4;
+*/
+
+body {
+	padding-top: 50px;
+	margin-bottom: 60px;
+	font-family: 'Roboto', sans-serif;
+}
+
+p {
+	margin: 5px 0;
+	color: #233645;
+}
+
+a {
+	text-decoration: none;
+	color: #1BB394;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #1BB394;
+}
+
+a:hover {
+	color: #19A387;
+	text-decoration: none;
+}
+
+input #menu-toggle{
+  display: none;
+}
+
+label {
+	cursor: pointer;
+}
+
+/* ---- MIXED ---- */
+
+img.hamburg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.navbar-default .navbar-nav li a {
+	text-align: center;
+	color: #F3F3F4;
+}
+
+.navbar-default .navbar-nav li a:visited {
+	color: #F3F3F4;
+}
+
+.navbar-default .navbar-nav li a:hover {
+	color: #233645;
+	background-color: #1BB394;
+}
+
+h1, .h1 {
+	color: #1BB394;
+}
+
+h2, .h2 {
+	margin: 0;
+}
+
+/* ---- Login ---- */
+
+#login .navbar-fixed-top {
+	background-color: #1BB394;
+}
+
+#login .navbar-default .navbar-brand {
+	background-color: #1BB394;
+}
+
+#login-push.container-fluid {
+	margin-top: 20px;
+	background-color: #1BB394;
+} 
+
+#login h2 {
+	color: #F3F3F4;
+}
+
+/* ---- IDs ----*/
+
+
+
+/* ---- Navbar ---- */
+
+#menu-toggle:checked ~ .navbar-nav { position: absolute; left: 0; }
+
+.navbar-nav {
+	box-sizing: border-box;
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+	position: absolute;
+	background-color: #263A4A;
+	left: -100%;
+	transition: all .3s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+}
+
+.navbar-header {
+	text-align: center;
+} 
+
+.navbar-default .navbar-brand {
+	float: initial;
+	margin-top: -20px;
+	font-family: 'Pacifico', cursive;
+	color: #1BB394;
+	font-size: 24px;
+	letter-spacing: 1px;
+}
+
+.navbar-default .navbar-brand:hover {
+	font-family: 'Pacifico', cursive;
+	color: #1BB394;
+}
+
+.navbar-fixed-top {
+	border-width: 0;
+	background-color: #263A4A;
+}
+
+
+/* ---- MISC (buttons, footer, notice, title, commands ---- */
+
+.button-link {
+	font-family: 'Pacifico', cursive;
+}
+
+.button-link:hover {
+	text-decoration: none;
+	color: #fff;
+}
+
+.button-link:visited {
+	text-decoration: none;
+	color: #fff;
+}
+
+.teal-button {
+	height: 35px;
+	width: 85px;
+	background-color: #1BB394;
+	color: #fff;
+	border-radius: 25px;
+	margin: 5px;
+}
+
+.teal-button:active {
+	background-color: #19A387;
+}
+
+.teal-button:hover {
+	color: #fff;
+}
+
+.footer {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 10px;
+	text-align: center;
+	background-color: #263A4A;
+	color: #263A4A;
+} 
+
+.alert {
+	margin-top: 10px;
+}
+
+.section-title {
+	margin-bottom: 20px;
+}
+
+.command_label {
+ 	margin-top: 10px;
+ 	margin-bottom: 10px;
+ }
+
+ .command-form-params {
+  margin-top: 30px;
+ 	margin-bottom: 10px;
+ }
+
+ .command-execute {
+ 	margin-top: 40px;
+ }
+
+/* ----------------------- */
+/* ---- MEDIA QUERIES ---- */
+/* ----------------------- */
+
+@media (min-width: 480px) {
+
+	img.hamburg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+	  width: 50px;
+	  height: 50px;
+	}
+
+
+	.navbar-default .navbar-brand {
+		font-size: 28px;
+	}
+}
+
+/* --- default Boostrap break point --- */
+@media (min-width: 768px) {
+	img.hamburg {
+		display: none;
+	}
+
+	.menu-label {
+		display: none;
+	}
+
+	#menu-toggle {
+		display: none;
+	}
+
+	.navbar-nav {
+		box-sizing: border-box;
+		width: auto;
+		position: relative;
+		background-color: #263A4A;
+		left: 0;
+		transition: none;
+		-webkit-transition: none;
+		-moz-transition: none;
+		-ms-transition: none;
+		-o-transition: none;
+		}	
+
+		#menu-toggle:checked ~ .navbar-nav {
+		box-sizing: border-box;
+		width: auto;
+		position: relative;
+		background-color: #263A4A;
+		left: 0;
+		transition: none;
+		-webkit-transition: none;
+		-moz-transition: none;
+		-ms-transition: none;
+		-o-transition: none;
+		}	
+
+	.navbar-default .navbar-brand {
+		margin-top: 0;
+	}
+
+	/* ---- Login Page ---- */
+
+		#login-push.container-fluid {
+			margin-top: 0;
+		} 
+
+}

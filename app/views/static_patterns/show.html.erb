@@ -1,0 +1,33 @@
+<h1><%= @static_pattern.name %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Property
+      </th>
+      <th>
+        Value
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Size</td>
+      <td><%= @static_pattern.send("size")%></td>
+    </tr>
+  <% (0..239).each do |i| %>
+    <tr> 
+      <td>
+        <%= "Pixel #{i}" %>
+      </td>
+      <td>
+        <%= @static_pattern.send("pixel_#{i}")%>
+      </td>
+    </tr>
+  <% end %> <!-- (0..239).each -->
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_static_pattern_path(@static_pattern) %> |
+<%= link_to 'Back', static_patterns_path %>

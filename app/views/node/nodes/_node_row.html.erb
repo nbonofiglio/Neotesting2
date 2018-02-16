@@ -1,0 +1,19 @@
+  <tbody>
+    <tr id='<%= @node.apiotics_instance %>'>
+      <td class='node-row-cell'>
+        <%= @node.name %>
+      </td>
+      <td class='node-row-cell'>
+        <%= @node.led.led_state %>
+      </td>
+      <td class='node-row-cell'>
+        <%= @node.button.safe %>
+      </td>
+      <td class='node-row-cell'>               
+        <%= @node.neo_pixel_stick_eight.led_index %>
+      </td>
+      <td class='node-row-cell'>    
+        <%= @node.neo_pixel_stick_eight.led_color %>    
+      </td>   
+    </tr>
+  </tbody>

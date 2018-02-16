@@ -1,0 +1,50 @@
+
+<div class="section-title">
+  <h1>Cord Commands</h1>
+</div>
+
+<%= form_with(url: new_command_path, html: {id: "commands-form", method: :get, class: "form-horizontal"} ) do |f| %>
+
+  <div class="row command_label">
+    <div class="col-sm-1">
+      <%= label_tag 'Command:' %>
+    </div>
+    <div class="col-sm-2">
+      <%= select_tag 'selected_command', options_for_select(get_commands.collect{ |c| [ c.titleize, c ] }) %>
+    </div>
+  </div>
+  <div class="row command_label">
+    <div class="col-sm-1">
+      <%= label_tag 'Cord:' %>
+    </div>
+    <div class="col-sm-2">
+      <%= collection_select :cord, :id, @cords, :id, :name, include_blank: false %>
+    </div>
+  </div>
+
+  <%= display_commands %>
+
+  <div class="command-execute">
+    <%= submit_tag "Execute" %>
+  </div>
+<% end %> <!-- form -->
+
+<script>
+  $(function(){
+      $('#selected_command').change(function() {
+        $('.command-form-params').hide();
+        $('.command-form-params').find("input").prop("disabled", true); 
+        $('#' + $(this).val()).show();
+        $('#' + $(this).val()).find(":input").prop("disabled", false); 
+      });
+    });
+
+  $(document).ready(function(){
+    $('#selected_command').select2()
+    $('#selected_command').trigger('change');
+  });
+
+
+
+    
+</script>
